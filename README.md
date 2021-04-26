@@ -39,6 +39,6 @@ GET Posts by User: https://jsonplaceholder.typicode.com/posts?userId=id
 GET Comments by Post: https://jsonplaceholder.typicode.com/comments?postId=id
 ``` 
 
-GIF
+[Gif app](https://github.com/tribo-mkt/iOSInterChallenge/blob/273ab7c69860b270a5e72241400543e9c72be7e5/app.gif)
 
 Até breve! 

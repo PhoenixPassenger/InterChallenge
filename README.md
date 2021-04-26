@@ -39,6 +39,6 @@ GET Posts by User: https://jsonplaceholder.typicode.com/posts?userId=id
 GET Comments by Post: https://jsonplaceholder.typicode.com/comments?postId=id
 ``` 
 
-[Gif app](app.gif)
+![Gif app](app.gif)
 
 Até breve! 

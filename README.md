@@ -8,7 +8,7 @@ O aplicativo funcionando exatamente como está na versão original. O comportame
 
 Publique o resultado da sua refatoração em um repositório público aqui mesmo no GitHub e nos envie o link.
 
-# O que gostarímos que fosse utilizados
+# O que gostaríamos que fosse utilizados
 
 * Padrão de Arquitetura de Software
 * Design Patterns

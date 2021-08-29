@@ -1,45 +1,33 @@
 import Alamofire
 import UIKit
 
-class CommentTableViewController: UITableViewController {
+class CommentTableViewController: UITableViewController, ListViewModelOutput {
     
     var postId = Int()
     var userName = String()
-    var comments = [Comment]()
 
+    var viewModel: CommentListViewModelType!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Comentários de \(userName)"
-        tableView.register(UINib(nibName: "TitleAndDescriptionTableViewCell", bundle: nil),
+        self.viewModel = CommentListViewModel()
+        self.viewModel.output = self
+        let backButton = UIBarButtonItem()
+        backButton.title = NSLocalizedString("Posts", comment: "")
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        let titleString = NSLocalizedString("CommentsBy", comment: "")
+        navigationItem.title = titleString.appending(userName)
+        tableView.register(TitleAndDescriptionTableViewCell.self,
                            forCellReuseIdentifier: "TitleAndDescriptionCell")
         fillComments(from: postId)
     }
     
     private func fillComments(from postId: Int) {
-        AF.request("https://jsonplaceholder.typicode.com/comments?postId=\(postId)").validate().responseJSON { response in
-            guard response.error == nil else {
-                let alert = UIAlertController(title: "Erro", message: "Algo errado aconteceu. Tente novamente mais tarde.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-                    alert.dismiss(animated: true)
-                }))
-                self.present(alert, animated: true)
-                return
-            }
-            
-            do {
-                if let data = response.data {
-                    let models = try JSONDecoder().decode([Comment].self, from: data)
-                    self.comments = models
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print("Error during JSON serialization: \(error.localizedDescription)")
-            }
-        }
+        self.viewModel.loadCommentsBy(postId: postId)
    }
 
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return comments.count
+        return self.viewModel.numberOfCells(section: section)
    }
     
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,10 +35,10 @@ class CommentTableViewController: UITableViewController {
             return UITableViewCell()
         }
 
-        let comment = comments[indexPath.row]
+        let index = indexPath.row
         cell.selectionStyle = .none
-        cell.titleLabel.text = comment.name
-        cell.descriptionLabel.text = comment.body
+        cell.titleLabel.text = self.viewModel.nameForCommentAt(index: index)
+        cell.descriptionLabel.text = self.viewModel.bodyForCommentAt(index: index)
 
         return cell
     }

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  InterChallenge
+
+  Created by Rodrigo Silva Ribeiro on 29/08/21.
+  
+*/
+"Challenge" = "Desafio";
+"PostsBy" = "Posts de ";
+"CommentsBy" = "Comentários de ";
+"AlbumsBy" = "Álbuns de ";
+"PhotosBy" = "Fotos de ";
+"Details" = "Detalhes";
+"Posts" = "Posts";
+"Photos" = "Fotos";
+"Album" = "Álbum";

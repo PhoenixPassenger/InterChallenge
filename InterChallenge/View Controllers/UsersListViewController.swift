@@ -10,7 +10,8 @@ class UsersListViewController: UITableViewController, ListViewModelOutput {
         super.viewDidLoad()
         self.viewModel = ChallengeViewModel()
         self.viewModel.output = self
-        tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserCell")
+        tableView.rowHeight = 233
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserCell")
         fillUsers()
     }
     

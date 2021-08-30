@@ -1,4 +1,3 @@
-import Alamofire
 import UIKit
 
 class PostTableViewController: UITableViewController, ListViewModelOutput {
@@ -7,16 +6,14 @@ class PostTableViewController: UITableViewController, ListViewModelOutput {
     var userName = String()
     
     var viewModel: PostListViewModelType!
-    
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = PostListViewModel()
-        self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = NSLocalizedString("Challenge", comment: "")
+        backButton.title = localizedStrings.challenge.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = NSLocalizedString("PostsBy", comment: "")
+        let titleString = localizedStrings.postsBy.localized
         navigationItem.title = titleString.appending(userName)
         tableView.register(TitleAndDescriptionTableViewCell.self,
                            forCellReuseIdentifier: "TitleAndDescriptionCell")
@@ -45,9 +42,6 @@ class PostTableViewController: UITableViewController, ListViewModelOutput {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postId = self.viewModel.idForPostAt(index: indexPath.row)
-        let dest = CommentTableViewController()
-        dest.postId = postId
-        dest.userName = self.userName
-        self.navigationController?.pushViewController(dest, animated: true)
+        self.coordinator?.postsToComments(with: postId, by: self.userName)
     }
 }

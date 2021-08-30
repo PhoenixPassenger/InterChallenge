@@ -30,7 +30,7 @@ struct ServiceLayer {
         }
     }
     
-    static func request(router: Router, completion: @escaping (Result<Data?, ServiceError>) -> Void) {
+    private static func request(router: Router, completion: @escaping (Result<Data?, ServiceError>) -> Void) {
         
         guard let request = router.urlRequest else {
             completion(.failure(ServiceError.malformedURLRequest(url: router.url?.absoluteString ?? "nil")))

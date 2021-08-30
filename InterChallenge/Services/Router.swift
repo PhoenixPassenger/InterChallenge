@@ -16,7 +16,6 @@ enum Router {
     case getCommentsByPosts(postId: Int)
     
     
-    
     var scheme: String {
         return "https"
     }

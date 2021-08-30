@@ -1,7 +1,8 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    weak var coordinator: MainCoordinator?
+    
     var photo = UIImage()
     var name = String()
     lazy var detailImageView: UIImageView = {
@@ -19,9 +20,9 @@ class DetailsViewController: UIViewController {
     
     func setupUI(){
         self.view.backgroundColor = .white
-        self.title = NSLocalizedString("Details", comment: "")
+        self.title = localizedStrings.details.localized
         let backButton = UIBarButtonItem()
-        backButton.title = NSLocalizedString("Photos", comment: "")
+        backButton.title = localizedStrings.photos.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.view.addSubview(detailImageView)
         self.view.addSubview(nameLabel)

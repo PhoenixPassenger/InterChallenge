@@ -1,15 +1,12 @@
-import Alamofire
 import UIKit
 
 class UsersListViewController: UITableViewController, ListViewModelOutput {
     
     var viewModel: ChallengeViewModelType!
-    
+    weak var coordinator: MainCoordinator?
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = ChallengeViewModel()
-        self.viewModel.output = self
         tableView.rowHeight = 233
         tableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserCell")
         fillUsers()
@@ -43,16 +40,10 @@ class UsersListViewController: UITableViewController, ListViewModelOutput {
 
 extension UsersListViewController: UserTableViewCellDelegate {
     func didTapAlbums(with userId: Int, by name: String) {
-        let dest = AlbumTableViewController()
-        dest.userId = userId
-        dest.userName = name
-        self.navigationController?.pushViewController(dest, animated: true)
+        self.coordinator?.albumsTable(with: userId, by: name)
     }
     
     func didTapPosts(with userId: Int, by name: String) {
-        let dest = PostTableViewController()
-        dest.userId = userId
-        dest.userName = name
-        self.navigationController?.pushViewController(dest, animated: true)
+        self.coordinator?.postsTable(with: userId, by: name)
     }
 }

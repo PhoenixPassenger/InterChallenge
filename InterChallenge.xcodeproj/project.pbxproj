@@ -26,6 +26,9 @@
 		5B2F70CB26DAD53E00892CBC /* PhotoListViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F70CA26DAD53E00892CBC /* PhotoListViewModelType.swift */; };
 		5B2F70CF26DADC4D00892CBC /* PhotosListViewModelOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F70CE26DADC4D00892CBC /* PhotosListViewModelOutput.swift */; };
 		5B2F70D426DBE5CF00892CBC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5B2F70D326DBE5CF00892CBC /* Localizable.strings */; };
+		5B2F70D626DC70E600892CBC /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F70D526DC70E600892CBC /* String+Localized.swift */; };
+		5B2F70D926DC78A300892CBC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F70D826DC78A300892CBC /* Coordinator.swift */; };
+		5B2F70DB26DC78BA00892CBC /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F70DA26DC78BA00892CBC /* MainCoordinator.swift */; };
 		BA0CF8B126321D30007BDFC8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA0CF89A26321BAE007BDFC8 /* Alamofire.framework */; };
 		BA0CF8B226321D30007BDFC8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BA0CF89A26321BAE007BDFC8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BA0CF8B92632F566007BDFC8 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0CF8B72632F566007BDFC8 /* UserTableViewCell.swift */; };
@@ -151,6 +154,9 @@
 		5B2F70CA26DAD53E00892CBC /* PhotoListViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModelType.swift; sourceTree = "<group>"; };
 		5B2F70CE26DADC4D00892CBC /* PhotosListViewModelOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosListViewModelOutput.swift; sourceTree = "<group>"; };
 		5B2F70D326DBE5CF00892CBC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		5B2F70D526DC70E600892CBC /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		5B2F70D826DC78A300892CBC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5B2F70DA26DC78BA00892CBC /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BA0CF88F26321BAE007BDFC8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		BA0CF8B72632F566007BDFC8 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		BA0CF8C02632F7E3007BDFC8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 			children = (
 				5B2F70B126DABB0900892CBC /* UIViewController+FailureAlert.swift */,
 				5B2F70BE26DACA6500892CBC /* UITableViewController+Output.swift */,
+				5B2F70D526DC70E600892CBC /* String+Localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,8 +262,17 @@
 				BA93F7F42632035A00CE8AFF /* Assets.xcassets */,
 				BA93F7F62632035A00CE8AFF /* LaunchScreen.storyboard */,
 				5B2F70D326DBE5CF00892CBC /* Localizable.strings */,
+				5B2F70D826DC78A300892CBC /* Coordinator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5B2F70D726DC788E00892CBC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5B2F70DA26DC78BA00892CBC /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		BA0CF86C26321AE6007BDFC8 /* Frameworks */ = {
@@ -373,6 +389,7 @@
 		BA93F7EA2632035800CE8AFF /* InterChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				5B2F70D726DC788E00892CBC /* Coordinator */,
 				5B2F70D226DBE00300892CBC /* Helpers */,
 				5B2F70B026DABAF500892CBC /* Extensions */,
 				5B2F70AB26DAB2D700892CBC /* View Models */,
@@ -606,9 +623,11 @@
 				5B2F70AF26DAB7AE00892CBC /* DecodeError.swift in Sources */,
 				BA0CF8FA26336FEB007BDFC8 /* PhotoTableViewController.swift in Sources */,
 				BA0CF9022633764E007BDFC8 /* DetailsViewController.swift in Sources */,
+				5B2F70D926DC78A300892CBC /* Coordinator.swift in Sources */,
 				5B2F70C126DACC2200892CBC /* CommentListViewModel.swift in Sources */,
 				BA93F7F02632035800CE8AFF /* UsersListViewController.swift in Sources */,
 				5B2F70C526DACF2900892CBC /* AlbumListViewModel.swift in Sources */,
+				5B2F70D626DC70E600892CBC /* String+Localized.swift in Sources */,
 				BA93F7EC2632035800CE8AFF /* AppDelegate.swift in Sources */,
 				5B2F70C726DACF3A00892CBC /* AlbumListViewModelType.swift in Sources */,
 				5B2F70A826DA7A6B00892CBC /* ServiceLayer.swift in Sources */,
@@ -622,6 +641,7 @@
 				5B2F70BB26DAC66D00892CBC /* ListViewModelOutput.swift in Sources */,
 				5B2F70B226DABB0900892CBC /* UIViewController+FailureAlert.swift in Sources */,
 				BA0CF8DA26335759007BDFC8 /* Post.swift in Sources */,
+				5B2F70DB26DC78BA00892CBC /* MainCoordinator.swift in Sources */,
 				5B2F70BF26DACA6500892CBC /* UITableViewController+Output.swift in Sources */,
 				BA0CF8D226334FDB007BDFC8 /* PostTableViewController.swift in Sources */,
 				5B2F70BD26DAC6FE00892CBC /* PostListViewModelType.swift in Sources */,

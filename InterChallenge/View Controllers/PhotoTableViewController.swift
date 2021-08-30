@@ -2,13 +2,12 @@ import Alamofire
 import UIKit
 
 class PhotoTableViewController: UITableViewController, PhotoListViewModelOutput {
+    weak var coordinator: MainCoordinator?
+    
     func performSegue(index: Int, image: UIImage?) {
         let title = self.viewModel.titleForPhotoAt(index: index)
-        let dest = DetailsViewController()
-        dest.name = title
         guard let image = image else { return }
-        dest.photo = image
-        self.navigationController?.pushViewController(dest, animated: true)
+        self.coordinator?.photoToDetails(with: title, by: image)
     }
     
     
@@ -29,9 +28,9 @@ class PhotoTableViewController: UITableViewController, PhotoListViewModelOutput 
         self.viewModel = PhotoListViewModel()
         self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = NSLocalizedString("Album", comment: "")
+        backButton.title = localizedStrings.album.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = NSLocalizedString("PhotosBy", comment: "")
+        let titleString = localizedStrings.photosBy.localized
         navigationItem.title = titleString.appending(userName)
         self.tableView.rowHeight = 173
         tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: "PhotoCell")

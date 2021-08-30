@@ -7,15 +7,16 @@ class AlbumTableViewController: UITableViewController, ListViewModelOutput {
     var userName = String()
 
     var viewModel: AlbumListViewModelType!
+    weak var coordinator: MainCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = AlbumListViewModel()
         self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = NSLocalizedString("Challenge", comment: "")
+        backButton.title = localizedStrings.challenge.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = NSLocalizedString("AlbumsBy", comment: "")
+        let titleString = localizedStrings.albumsBy.localized
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         navigationItem.title = titleString.appending(userName)
@@ -44,9 +45,6 @@ class AlbumTableViewController: UITableViewController, ListViewModelOutput {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let albumId = self.viewModel.idForAlbumAt(index: indexPath.row)
-        let dest = PhotoTableViewController()
-        dest.albumId = albumId
-        dest.userName = self.userName
-        self.navigationController?.pushViewController(dest, animated: true)
+        self.coordinator?.albumToPhoto(with: albumId, by: self.userName)
     }
 }

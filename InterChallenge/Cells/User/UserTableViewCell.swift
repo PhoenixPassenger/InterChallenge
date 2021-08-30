@@ -63,7 +63,7 @@ class UserTableViewCell: UITableViewCell {
         var button = UIButton()
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        let title = NSLocalizedString("AlbumsButton", comment: "")
+        let title = localizedStrings.albumsButton.localized
         button.contentMode = .scaleToFill
         button.setTitle(title, for: .normal)
         button.setTitleColor(.systemOrange, for: .normal)
@@ -74,7 +74,7 @@ class UserTableViewCell: UITableViewCell {
         var button = UIButton()
         button.clipsToBounds = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        let title = NSLocalizedString("PostsButton", comment: "")
+        let title = localizedStrings.postsButton.localized
         button.contentMode = .scaleToFill
         button.setTitle(title, for: .normal)
         button.setTitleColor(.systemOrange, for: .normal)

@@ -5,7 +5,6 @@
 //  Created by Rodrigo Silva Ribeiro on 29/08/21.
 //
 
-import Foundation
 import UIKit
 
 protocol Coordinator {

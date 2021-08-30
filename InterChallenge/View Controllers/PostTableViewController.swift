@@ -11,9 +11,9 @@ class PostTableViewController: UITableViewController, ListViewModelOutput {
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem()
-        backButton.title = localizedStrings.challenge.localized
+        backButton.title = LocalizedStrings.challenge.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = localizedStrings.postsBy.localized
+        let titleString = LocalizedStrings.postsBy.localized
         navigationItem.title = titleString.appending(userName)
         tableView.register(TitleAndDescriptionTableViewCell.self,
                            forCellReuseIdentifier: "TitleAndDescriptionCell")

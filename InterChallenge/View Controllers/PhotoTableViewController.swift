@@ -27,9 +27,9 @@ class PhotoTableViewController: UITableViewController, PhotoListViewModelOutput 
         self.viewModel = PhotoListViewModel()
         self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = localizedStrings.album.localized
+        backButton.title = LocalizedStrings.album.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = localizedStrings.photosBy.localized
+        let titleString = LocalizedStrings.photosBy.localized
         navigationItem.title = titleString.appending(userName)
         self.tableView.rowHeight = 173
         tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: "PhotoCell")

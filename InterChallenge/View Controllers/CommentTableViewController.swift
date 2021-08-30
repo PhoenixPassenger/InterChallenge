@@ -13,9 +13,9 @@ class CommentTableViewController: UITableViewController, ListViewModelOutput {
         self.viewModel = CommentListViewModel()
         self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = localizedStrings.posts.localized
+        backButton.title = LocalizedStrings.posts.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = localizedStrings.commentsBy.localized
+        let titleString = LocalizedStrings.commentsBy.localized
         navigationItem.title = titleString.appending(userName)
         tableView.register(TitleAndDescriptionTableViewCell.self,
                            forCellReuseIdentifier: "TitleAndDescriptionCell")

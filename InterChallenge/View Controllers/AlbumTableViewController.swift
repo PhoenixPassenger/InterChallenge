@@ -13,9 +13,9 @@ class AlbumTableViewController: UITableViewController, ListViewModelOutput {
         self.viewModel = AlbumListViewModel()
         self.viewModel.output = self
         let backButton = UIBarButtonItem()
-        backButton.title = localizedStrings.challenge.localized
+        backButton.title = LocalizedStrings.challenge.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        let titleString = localizedStrings.albumsBy.localized
+        let titleString = LocalizedStrings.albumsBy.localized
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
         navigationItem.title = titleString.appending(userName)

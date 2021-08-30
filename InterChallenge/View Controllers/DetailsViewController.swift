@@ -20,9 +20,9 @@ class DetailsViewController: UIViewController {
     
     func setupUI(){
         self.view.backgroundColor = .white
-        self.title = localizedStrings.details.localized
+        self.title = LocalizedStrings.details.localized
         let backButton = UIBarButtonItem()
-        backButton.title = localizedStrings.photos.localized
+        backButton.title = LocalizedStrings.photos.localized
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         self.view.addSubview(detailImageView)
         self.view.addSubview(nameLabel)

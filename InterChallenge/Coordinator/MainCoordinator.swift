@@ -18,7 +18,7 @@ class MainCoordinator: Coordinator {
 
     func start() {
         let rootViewControoler = UsersListViewController()
-        rootViewControoler.title = localizedStrings.challenge.localized
+        rootViewControoler.title = LocalizedStrings.challenge.localized
         rootViewControoler.coordinator = self
         rootViewControoler.viewModel = ChallengeViewModel()
         rootViewControoler.viewModel.output = rootViewControoler

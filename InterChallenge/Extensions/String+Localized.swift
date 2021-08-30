@@ -20,7 +20,7 @@ extension Localizable where Self: RawRepresentable, Self.RawValue == String {
         return rawValue.localized()
     }
 }
-enum localizedStrings: String, Localizable {
+enum LocalizedStrings: String, Localizable {
     case challenge = "Challenge"
     case details = "Details"
     case posts = "Posts"
